@@ -8,10 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EvPediaApplication {
 
 	public static void main(String[] args) {
-//		Client client = new Client();
-//		client.get("https://pokeapi.co/api/v2/region/johto");
+		//client.get("https://pokeapi.co/api/v2/region/johto");
 		SpringApplication.run(EvPediaApplication.class, args);
-
 	}
 
 }
