@@ -1,1 +1,9 @@
 <h1>Begin</h1>
+<h2>Region Johto:</h2>
+<table *ngIf="list">
+  <tr *ngFor="let l of locations">
+    <td>{{l.name}}</td>
+    <td>{{l.url}}</td>
+  </tr>
+</table>
+<button (click)="listLocals()">Clique Aqui</button>
