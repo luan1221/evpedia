@@ -20,9 +20,10 @@ public class RegionController {
     public RegionController() {}
 
     @GetMapping("/region")
-    Region getRegionFromAPI() {
+    Location[] getRegionFromAPI() {
         RestTemplate restTemplate = new RestTemplate();
         String uri = "https://pokeapi.co/api/v2/region/johto";
-        return restTemplate.getForObject(uri, Region.class);
+        Region region = restTemplate.getForObject(uri, Region.class);
+        return region.getLocations().toArray(new Location[0]);
     }
 }
