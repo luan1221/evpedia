@@ -1,9 +1,20 @@
 <h1>Begin</h1>
 <h2>Region Johto:</h2>
+
+<table>
+  <tr>
+    <td>Type region name</td>
+    <td>
+      <input [(ngModel)]="selectedLocation" type="text" name="region-name" placeholder="Ex: Sinnoh">
+    </td>
+    <td>
+      <button (click)="listLocals(selectedLocation)">Submit</button>
+    </td>
+  </tr>
+</table>
 <table *ngIf="list">
   <tr *ngFor="let l of locations">
     <td>{{l.name}}</td>
     <td>{{l.url}}</td>
   </tr>
 </table>
-<button (click)="listLocals()">Clique Aqui</button>

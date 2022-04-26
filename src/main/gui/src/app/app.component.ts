@@ -11,26 +11,26 @@ export class AppComponent {
 
   locations: Local[] = [];
 
-  locTest: Local;
+  selectedLocation: string;
 
   list: boolean = false;
 
-  constructor(private regionService : RegionService) {
-    this.locTest = new Local();
+  constructor(private regionService : RegionService) {}
+
+  ngOnInit() {
+    this.selectedLocation = "";
   }
 
-  async ngOnInit() {
-    await this.regionService.getRegionLocations()
+  async listLocals(selectedLocation: string) {
+
+    console.log("Location: " + selectedLocation);
+    await this.regionService.getRegionLocations(selectedLocation)
       .subscribe({
         next: (locs: Local[]) => this.locations = locs
       });
-    console.log(this.locTest);
-    console.log(this.locations);
-    this.locTest = this.locations[0];
-    console.log("LocTest: " + this.locTest);
-  }
-
-  listLocals(): void {
-    this.list = true;
+    if (this.locations) {
+      this.list = true;
+      this.selectedLocation = "";
+    }
   }
 }

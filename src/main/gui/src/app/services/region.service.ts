@@ -14,8 +14,8 @@ export class RegionService {
 
   constructor(private client : HttpClient) {}
 
-  getRegionLocations(): Observable<Local[]> {
-    return this.client.get<Local[]>(`${this.url}/regions/region`)
+  getRegionLocations(selectedLocation: string): Observable<Local[]> {
+    return this.client.get<Local[]>(`${this.url}/regions/region/${selectedLocation}`)
       .pipe(
         retry(2)
       );
